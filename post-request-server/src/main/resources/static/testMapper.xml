@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="testMapper">
+	
+	<select id="insertMartTnRecdPrd">
+		INSERT INTO
+		mart_tn_recd_prd
+		(ORG_ID,TBL_ID,PRD_SE,PRD_DE,CLLCT_KD,STBL_TRNS_SE,PUB_SE,SMBL_CN,DTL_DC,
+		FST_REG_DE,FST_REG_NM,LST_CHN_DE,LST_CHN_NM,SEND_DE,SEND_NM,PERIOD_CO,WGT_YN)
+		VALUES
+		<foreach collection="list" item="item" separator=" , ">
+			(#{item.orgId}, #{item.tblId}, #{item.prdSe}, #{item.prdDe},
+			#{item.cllctKd}, #{item.stblTrnsSe},
+			#{item.pubSe}, #{item.smblCn},
+			#{item.dtlDc}, #{item.fstRegDe}, #{item.fstRegNm}, #{item.lstChnDe},
+			#{item.lstChnNm}, #{item.sendDe}, #{item.sendNm}, #{item.periodCo},
+			#{item.wgtYn})
+		</foreach>
+	</select>
+	
+
+
+</mapper>
